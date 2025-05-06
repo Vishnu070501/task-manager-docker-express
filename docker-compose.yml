@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
+    environment:
+      - MONGODB_URI=mongodb://mongodb:27017/task-manager
+      - ACCESS_TOKEN_SECRET=your_access_token_secret
+      - REFRESH_TOKEN_SECRET=your_refresh_token_secret
+      - PORT=3000
+    networks:
+      - task-manager-network
+    restart: unless-stopped
+
+networks:
+  task-manager-network:
+    external: true
