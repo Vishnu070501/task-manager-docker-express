@@ -1,5 +1,3 @@
-version: '3'
-
 services:
   app:
     build: .
@@ -12,10 +10,26 @@ services:
       - ACCESS_TOKEN_SECRET=your_access_token_secret
       - REFRESH_TOKEN_SECRET=your_refresh_token_secret
       - PORT=3000
+    depends_on:
+      - mongodb
+    networks:
+      - task-manager-network
+    restart: unless-stopped
+
+  mongodb:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
     networks:
       - task-manager-network
     restart: unless-stopped
 
 networks:
   task-manager-network:
-    external: true
+    driver: bridge
+
+volumes:
+  mongodb_data:
+    # external: true
