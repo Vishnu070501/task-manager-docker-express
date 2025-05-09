@@ -378,22 +378,3 @@ out/
 .DS_Store
 Thumbs.db
 ```
-
-## Step 6: Take screenshots of your application
-
-Create some screenshots of your application running and save them in the `docs/` directory:
-- `docs/screenshot-tasks.png`
-- `docs/screenshot-add-task.png`
-
-## Step 7: Commit everything to GitHub
-
-```bash
-git add .
-```
-
-```bash
-git commit -m "Complete multi-container Docker setup for task manager application"
-```
-
-```bash
-git push origin main
