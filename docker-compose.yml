@@ -1,6 +1,7 @@
 services:
   app:
-    build: .
+    # build: .
+    image: vishnu070501/express-app-docker:backend
     ports:
       - "3000:3000"
     env_file:
